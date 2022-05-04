@@ -1,0 +1,11 @@
+name: on-push
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: sh ./.github/scripts/test.sh
+        env:
+          TEST: ${{ secrets.TOP_SECRET }}
+      
